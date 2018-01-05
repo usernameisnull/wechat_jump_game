@@ -50,3 +50,39 @@ adb shell input swipe x y x y time(ms)
 - 176740763 (500人 已满)
 - 89213434 (2000人 已满)
 - 64389940 (2000人)
+
+## 打包成windows下exe的方法
+- 基于https://github.com/wangshub/wechat_jump_game/commit/5576e548b6df671e2aa5536b4a8097d3b255c35b
+0. wechat_jump_auto.py所在目录定义为顶层目录
+1. 激活虚拟环境
+2. 在虚拟环境 pip install pyinstaller
+3. setuptools降版至19.2,因为numpy绑定失败的问题
+3. 更改comm/config.py, 因为会找不到路径,在这里5576e548b6df671e2aa5536b4a8097d3b255c35b的config.py被重命名为congig.py.bak,config.py已经被改了
+4. 在顶层目录执行, F:\wechat_jump_env\Scripts\pyinstaller.exe为自己的虚拟环境安装的pyinstaller的绝对路径
+    F:\wechat_jump_env\Scripts\pyinstaller.exe --clean --win-private-assemblies -F wechat_jump_auto.py -p F:\\wechat_jump_env\\lib\\site-packages
+5. 拷贝dist\wechat_jump_auto.exe至 顶层目录
+6. 拷贝Tools\adb\目录下的adb.exe, fastboot.exe, AdbWinApi.dll, AdbWinUsbApi.dll到 顶层目录
+7. 删除顶层目录下的build，dist目录机及其他不需要的py文件
+
+(wechat_jump_env) F:\wechat_jump_env\wechat_jump_game>pip list
+DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+altgraph (0.15)
+backports.functools-lru-cache (1.4)
+cycler (0.10.0)
+future (0.16.0)
+macholib (1.9)
+matplotlib (2.1.1)
+numpy (1.13.3)
+olefile (0.44)
+opencv-python (3.4.0.12)
+pefile (2017.11.5)
+Pillow (4.3.0)
+pip (9.0.1)
+PyInstaller (3.3.1)
+pyparsing (2.2.0)
+pypiwin32 (220)
+python-dateutil (2.6.1)
+pytz (2017.3)
+setuptools (19.2)
+six (1.11.0)
+wheel (0.30.0)
