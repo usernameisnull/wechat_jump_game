@@ -53,6 +53,7 @@ adb shell input swipe x y x y time(ms)
 
 ## 打包成windows下exe的方法
 - 基于https://github.com/wangshub/wechat_jump_game/commit/5576e548b6df671e2aa5536b4a8097d3b255c35b
+- 参考了https://github.com/wangshub/wechat_jump_game/releases里MrLevo520的打包成果
 0. wechat_jump_auto.py所在目录定义为顶层目录
 1. 激活虚拟环境
 2. 在虚拟环境 pip install pyinstaller
@@ -63,26 +64,27 @@ adb shell input swipe x y x y time(ms)
 5. 拷贝dist\wechat_jump_auto.exe至 顶层目录
 6. 拷贝Tools\adb\目录下的adb.exe, fastboot.exe, AdbWinApi.dll, AdbWinUsbApi.dll到 顶层目录
 7. 删除顶层目录下的build，dist目录机及其他不需要的py文件
-
+ 
+- 自己的打包成功的虚拟环境
 (wechat_jump_env) F:\wechat_jump_env\wechat_jump_game>pip list
-DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
-altgraph (0.15)
-backports.functools-lru-cache (1.4)
-cycler (0.10.0)
-future (0.16.0)
-macholib (1.9)
-matplotlib (2.1.1)
-numpy (1.13.3)
-olefile (0.44)
-opencv-python (3.4.0.12)
-pefile (2017.11.5)
-Pillow (4.3.0)
-pip (9.0.1)
-PyInstaller (3.3.1)
-pyparsing (2.2.0)
-pypiwin32 (220)
-python-dateutil (2.6.1)
-pytz (2017.3)
-setuptools (19.2)
-six (1.11.0)
-wheel (0.30.0)
+- DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=- - (legacy|columns) in your pip.conf under the [list] section) to disable this warning.
+- altgraph (0.15)
+- backports.functools-lru-cache (1.4)
+- cycler (0.10.0)
+- future (0.16.0)
+- macholib (1.9)
+- matplotlib (2.1.1)
+- numpy (1.13.3)
+- olefile (0.44)
+- opencv-python (3.4.0.12)
+- pefile (2017.11.5)
+- Pillow (4.3.0)
+- pip (9.0.1)
+- PyInstaller (3.3.1)
+- pyparsing (2.2.0)
+- pypiwin32 (220)
+- python-dateutil (2.6.1)
+- pytz (2017.3)
+- setuptools (19.2)
+- six (1.11.0)
+- wheel (0.30.0)
